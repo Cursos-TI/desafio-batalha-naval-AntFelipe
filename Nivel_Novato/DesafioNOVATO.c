@@ -1,17 +1,20 @@
 #include <stdio.h>
 int main (){
-    int tabuleiro[10][10] = {
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 3, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 3, 3, 3, 3},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-    };
+    int tabuleiro[10][10];
+
+    for (int INDEX_1 = 0; INDEX_1 < 10; INDEX_1++) {
+        for (int INDEX_0 = 0; INDEX_0 < 10; INDEX_0++) {
+            tabuleiro[INDEX_1][INDEX_0] = 0; // Atribui 0 (água) a todos os pontos
+        }
+    }
+
+    tabuleiro[1][1] = 3;
+    tabuleiro[2][1] = 3;
+    tabuleiro[3][1] = 3;
+
+    tabuleiro[8][8] = 3;
+    tabuleiro[8][7] = 3;
+    tabuleiro[8][6] = 3;
 
 int INDEX_1; //linhas
 int INDEX_0; //colunas
@@ -21,16 +24,10 @@ int INDEX_0; //colunas
     for (INDEX_1 = 0; INDEX_1 <= 9; INDEX_1++)
     {
 
-        for (INDEX_0 = 0; INDEX_0 <= 9; INDEX_0++) /* O valor de index_0 é configurado dentro do loop de modo a 
-                                                    sempre que o loop externo voltar a rodar o valor não ficará 
-                                                    salvo fixamente, e voltará a ser 0. Se adicionasse externamente
-                                                    o valor, após a soma, ficaria sempre como 10 (não sendo lido) e 
-                                                    o printf saíria vazio! */
+        for (INDEX_0 = 0; INDEX_0 <= 9; INDEX_0++)
         {
-            printf("%d  ", tabuleiro[INDEX_1][INDEX_0]); //2 espaços para organizar
+            printf("%d  ", tabuleiro[INDEX_1][INDEX_0]);
         };
-
         printf("\n");
-        
     };
 }
