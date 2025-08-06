@@ -21,23 +21,6 @@ int main (){
         }
     }
 
-    for (int Navio1 = 1, i = 1; Navio1 <= TamanhoNavio; Navio1++){
-        tabuleiro[Navio1][i] = 3; //ele começa na linha 2 e vai somando até ficar 4 - Vertical
-    }
-
-    for (int Navio2_X = 1, i = 8; Navio2_X <= TamanhoNavio; Navio2_X++){
-        tabuleiro[i][Navio2_X] = 3; //ele começa na coluna 2 e vai somando até fica 4 - Horizontal
-    }
-
-    for (int Navio3 = 1, i = 5; Navio3 <= TamanhoNavio; Navio3++){
-        tabuleiro[Navio3+i][Navio3+i] = 3; //ele começa na linha/coluna 7 e vai somando até navio3=3
-    }
-
-    for (int Navio4 = 1, i = 5, j = 0; Navio4 <= TamanhoNavio; Navio4++){
-        tabuleiro[Navio4][Navio4+i-j] = 3; //linha 2
-        j = j + 2; /* vai subtraindo 1 da coluna, já que normalmente ela vai somando 1 (navio4++) e aqui estamos
-        subtraindo 2 (1 - 2= -1) */
-    }
 // CONFIGURAR E ADICIONAR A TABELA CONE AO TABULEIRO
     for (int i = 0; i < LinhaPODER; i++){ //todas as posições virar 0
         for (int j = 0; j < ColunaPODERCONE; j++){
@@ -74,14 +57,14 @@ for (int i = 0; i < LinhaPODER; i++) { //controla as linhas
 // CONFIGURAR E ADICIONAR A TABELA Cruz AO TABULEIRO
     for (int i = 0; i < LinhaPODER; i++){ //tabela em branco (0)
         for (int j = 0; j < ColunaPODER; j++){
-            PoderCone[i][j] = 0;
+            PoderCruz[i][j] = 0;
         }
     }
     
     for (int i = 0; i < LinhaPODER; i++){
         for (int j = 0; j < ColunaPODER; j++){
             if (i == 1 || j == 1){ //pego todas as posições centrais -> se i tá igual ao centro ou j = centro
-                PoderCone[i][j] = 5;
+                PoderCruz[i][j] = 5;
             }
         }
     }
@@ -119,9 +102,7 @@ for (int i = 0; i < LinhaPODER_octa; i++){
         if (i == 2 && j >= 0 && j <= 4){
             PoderOctaedro[i][j] = 5;
         }
-        printf("%d", PoderOctaedro[i][j]);
     }
-    printf("\n");
 }
 
 for (int i = 0; i < LinhaPODER_octa; i++){
@@ -138,6 +119,23 @@ for (int i = 0; i < LinhaPODER_octa; i++){
     }
 }
 
+    for (int Navio1 = 1, i = 1; Navio1 <= TamanhoNavio; Navio1++){
+        tabuleiro[Navio1][i] = 3; //ele começa na linha 2 e vai somando até ficar 4 - Vertical
+    }
+
+    for (int Navio2_X = 1, i = 8; Navio2_X <= TamanhoNavio; Navio2_X++){
+        tabuleiro[i][Navio2_X] = 3; //ele começa na coluna 2 e vai somando até fica 4 - Horizontal
+    }
+
+    for (int Navio3 = 1, i = 5; Navio3 <= TamanhoNavio; Navio3++){
+        tabuleiro[Navio3+i][Navio3+i] = 3; //ele começa na linha/coluna 7 e vai somando até navio3=3
+    }
+
+    for (int Navio4 = 1, i = 5, j = 0; Navio4 <= TamanhoNavio; Navio4++){
+        tabuleiro[Navio4][Navio4+i-j] = 3; //linha 2
+        j = j + 2; /* vai subtraindo 1 da coluna, já que normalmente ela vai somando 1 (navio4++) e aqui estamos
+        subtraindo 2 (1 - 2= -1) */
+    }
 
 int INDEX_1; //linhas
 int INDEX_0; //colunas
